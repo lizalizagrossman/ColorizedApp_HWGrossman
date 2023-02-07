@@ -19,15 +19,20 @@ class ViewController: UIViewController {
     @IBOutlet var greenColourSlider: UISlider!
     @IBOutlet var blueColourSlider: UISlider!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         colourView.layer.cornerRadius = 20
         colourView.backgroundColor = UIColor(
-            red: CGFloat(redColourSlider.value),
-            green: CGFloat(greenColourSlider.value),
-            blue: CGFloat(blueColourSlider.value),
+            red: 0.5,
+            green: 0.5,
+            blue: 0.5,
             alpha: 1
         )
+        redColourNumber.text = (round(redColourSlider.value * 100) / 100.0).formatted()
+        greenColourNumber.text = (round(greenColourSlider.value * 100) / 100.0).formatted()
+        blueColourNumber.text = (round(blueColourSlider.value * 100) / 100.0).formatted()
+        
     }
     
     @IBAction func addRedColor() {
@@ -37,6 +42,7 @@ class ViewController: UIViewController {
             blue: CGFloat(blueColourSlider.value),
             alpha: 1
         )
+        redColourNumber.text = (round(redColourSlider.value * 100) / 100.0).formatted()
     }
     @IBAction func addGreenColor() {
         colourView.backgroundColor = UIColor(
@@ -45,6 +51,7 @@ class ViewController: UIViewController {
             blue: CGFloat(blueColourSlider.value),
             alpha: 1
         )
+        greenColourNumber.text = (round(greenColourSlider.value * 100) / 100.0).formatted()
     }
     @IBAction func addBlueColor() {
         colourView.backgroundColor = UIColor(
@@ -53,6 +60,7 @@ class ViewController: UIViewController {
             blue: CGFloat(blueColourSlider.value),
             alpha: 1
         )
+        blueColourNumber.text = (round(blueColourSlider.value * 100) / 100.0).formatted()
     }
 }
 
